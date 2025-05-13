@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --background-light: #ecf0f1;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    nav ul.menu {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul.menu li {
+      position: relative;
+    }
+
+    nav ul.menu a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+      display: block;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background: var(--primary-color);
+      list-style: none;
+      top: 100%;
+      left: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .highlight {
+      color: var(--accent-color);
+    }
+
+    .banner {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 9s infinite;
+    }
+
+    .slide {
+      flex: 1 0 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    section.headquarter {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .city-list {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .city {
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    section.message {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .message-form, .message-display {
+      width: 45%;
+      min-width: 300px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #eee;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul.menu {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+      }
+
+      nav ul.menu.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .message-form, .message-display {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">RE<br>VO</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul class="menu" id="mainMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">My Profile</a></li>
+        <li class="dropdown">
+          <a href="#">Portfolio</a>
+          <ul class="submenu">
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Mobile</a></li>
+            <li><a href="#">Website</a></li>
+          </ul>
+        </li>
+        <li><a href="#" id="message-us-link">Message Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Hi Harfi, <span class="highlight">Welcome To Website</span></h1>
+    <p>Ini adalah website latihan pertama</p>
+  </main>
+
+  <div class="banner">
+    <div class="slides">
+      <div class="slide" style="background-image: url('https://via.placeholder.com/800x200/3498db/ffffff?text=Slide+1');"></div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/800x200/e74c3c/ffffff?text=Slide+2');"></div>
+      <div class="slide" style="background-image: url('https://via.placeholder.com/800x200/2ecc71/ffffff?text=Slide+3');"></div>
+    </div>
+  </div>
+
+  <section class="headquarter">
+    <h2>Our Headquarter</h2>
+    <div class="city-list">
+      <div>
+        <div class="city"></div>
+        <p>Jakarta</p>
+      </div>
+      <div>
+        <div class="city"></div>
+        <p>Bandung</p>
+      </div>
+      <div>
+        <div class="city"></div>
+        <p>Surabaya</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="message">
+    <div class="message-form">
+      <h3>Message Us</h3>
+      <form>
+        <label>Nama :</label><br>
+        <input type="text" placeholder="Nama" /><br><br>
+        <label>Tanggal Lahir :</label><br>
+        <input type="date" /><br><br>
+        <label>Jenis Kelamin :</label><br>
+        <input type="radio" name="gender" /> Laki-laki
+        <input type="radio" name="gender" /> Perempuan<br><br>
+        <label>Pesan :</label><br>
+        <textarea placeholder="Pesan"></textarea><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="message-display">
+      <p><strong>Current time :</strong> Fri, 17 2025 11:27:36 GMT+7</p>
+      <p><strong>Nama :</strong> Harfi Nofiansyah</p>
+      <p><strong>Tanggal Lahir :</strong> 01/01/2003</p>
+      <p><strong>Jenis Kelamin :</strong> Laki-laki</p>
+      <p><strong>Pesan :</strong> Login & Register Dual Website</p>
+    </div>
+  </section>
+
+  <footer>
+    Created By Rev01
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mainMenu").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
